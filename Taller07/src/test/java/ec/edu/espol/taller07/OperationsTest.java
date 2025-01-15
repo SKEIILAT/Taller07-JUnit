@@ -99,6 +99,37 @@ public class OperationsTest {
         assertEquals("1000*1000=1000000", Operations.Solve(formula));
     }
 
+    @Test
+    @DisplayName("Division para cero")
+     void testSolve1() {
+        String formula = "5/0+5";
+        assertThrows(ArithmeticException.class, () -> Operations.Solve(formula), "Deberia lanzar ArithmeticException ");
+        
+    }
+     
+    @Test
+    @DisplayName("Operacion solo multiplicacion")
+     void testSolve4() {
+        String formula = "5*5*1";
+        assertEquals("5*5*1=25",Operations.Solve(formula),"La operacion deberia dar:" );
+       
+     }
+     
+    @Test
+    @DisplayName("Operacion Combinada con multiplicacion")
+     void testSolve2() {
+        String formula = "5*5+5";
+        assertEquals("5*5+5=30",Operations.Solve(formula),"La operacion deberia dar:" );
+       
+     }
+     
+    @Test
+    @DisplayName("Operacion  solo sumas")
+     void testSolve3() {
+        String formula2 = "5+5";
+        assertEquals("5+5=10",Operations.Solve(formula2),"La operacion deberia dar:" );
+       
+     }
     
     
 }
