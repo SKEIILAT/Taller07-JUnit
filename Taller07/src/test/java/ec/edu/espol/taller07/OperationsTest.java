@@ -18,28 +18,23 @@ import org.junit.jupiter.api.DisplayName;
  */
 public class OperationsTest {
     
-    public OperationsTest() {
+    
+    @Test
+    @DisplayName("Se desea combrobar si hace operaciones mixtas con parentesis")
+    public void testOperacionMixta(){
+        String formula = "(3+5)*6";
+        String expected = "(3+5)*6 = 48";
+        assertEquals(expected, Operations.Solve(formula));
     }
     
-//    @BeforeAll
-//    public static void setUpClass() {
-//    }
-//    
-//    @AfterAll
-//    public static void tearDownClass() {
-//    }
-//    
-//    @BeforeEach
-//    public void setUp() {
-//    }
-//    
-//    @AfterEach
-//    public void tearDown() {
-//    }
-
-    /**
-     * Test of MakeFormula method, of class Operations.
-     */
+    @Test
+    @DisplayName("Se desea comprobar si opera expresiones con espacios")
+    public void testEspacios(){
+        String formula = "3 + 1 * 2";
+        String expected = "3 + 1 * 2 = 6";
+        assertEquals(expected, Operations.Solve(formula));
+    }
+    
     
     @Test
     @DisplayName("Testeamos que la formula no sea nula")
