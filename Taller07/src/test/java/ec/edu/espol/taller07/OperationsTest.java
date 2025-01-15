@@ -89,6 +89,21 @@ public class OperationsTest {
         assertFalse(formula.matches(".*[^\\d\\+\\-\\*/].*")); // No debe contener nada que no sea número o operador
     }
 
+    @Test
+    @DisplayName("Prueba si le ingresamos una letra")
+    void TestSolveWithLetter() {
+        String formula = "5+3+A";
+        assertThrows(NumberFormatException.class, () -> Operations.Solve(formula));
+    }
+
+    @Test
+    @DisplayName("Verificar que maneje correctamente numeros grandes")
+    void testSolveNumerosGrandes() {
+        String formula = "1000*1000";
+        // 15,633,267,203,301,715,044,870,723,372
+        assertEquals("1000*1000=1000000", Operations.Solve(formula));
+    }
+
     
     
 }
